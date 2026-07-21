@@ -34,17 +34,18 @@ export default function Home() {
     <>
       {/* CINEMATIC VIDEO HERO */}
       <section className="relative flex min-h-[100svh] w-full flex-col overflow-hidden">
-        <div className="absolute inset-0">
+        {/* Fixed full-bleed media layer — always covers the entire hero */}
+        <div className="absolute inset-0 h-full w-full">
           <Video
             src={videos.hero}
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
+          {/* readability overlays (inside media layer so they always match its height) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-leaf-900/65 via-leaf-900/45 to-leaf-900/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-leaf-900/55 to-transparent" />
         </div>
-        {/* readability overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-leaf-900/70 via-leaf-900/40 to-leaf-900/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-leaf-900/60 to-transparent" />
 
-        <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 pb-16 pt-28 sm:pb-20 sm:pt-32">
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 pb-14 pt-28 sm:pb-20 sm:pt-32">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,18 +105,18 @@ export default function Home() {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="mt-8 flex flex-wrap gap-x-5 gap-y-2.5 sm:mt-12 sm:gap-x-6 sm:gap-y-3"
+            className="mt-8 grid grid-cols-2 gap-2.5 rounded-2xl border border-cream/15 bg-leaf-900/25 p-3 backdrop-blur-md sm:mt-12 sm:inline-flex sm:flex-wrap sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none"
           >
             {trust.map((t) => (
               <motion.li
                 key={t.label}
                 variants={item}
-                className="flex items-center gap-2 text-xs font-medium text-cream/90 sm:text-sm"
+                className="flex items-center gap-2.5 rounded-xl bg-cream/10 px-3 py-2.5 text-[0.8rem] font-medium text-cream sm:rounded-full sm:bg-cream/10 sm:px-4 sm:py-2 sm:text-sm sm:backdrop-blur"
               >
-                <span className="rounded-full bg-cream/15 p-1.5 text-gold-300 backdrop-blur">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-400/20 text-gold-300">
                   <t.icon size={15} />
                 </span>
-                {t.label}
+                <span className="leading-tight">{t.label}</span>
               </motion.li>
             ))}
           </motion.ul>
@@ -134,14 +135,20 @@ export default function Home() {
       </section>
 
 
-      {/* MARQUEE STRIP */}
-      <div className="border-y border-leaf-800 bg-leaf-900 py-3">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-5 text-sm font-medium text-leaf-100">
-          {product.highlights.map((h) => (
-            <span key={h} className="flex items-center gap-2">
-              <Star size={13} className="text-gold-400" /> {h}
-            </span>
-          ))}
+      {/* MARQUEE STRIP — infinite scrolling highlights */}
+      <div className="border-y border-leaf-800 bg-leaf-900 py-3.5">
+        <div className="marquee-mask overflow-hidden">
+          <div className="animate-marquee flex w-max items-center">
+            {[...product.highlights, ...product.highlights].map((h, i) => (
+              <span
+                key={`${h}-${i}`}
+                className="flex items-center gap-2.5 px-6 text-sm font-medium text-leaf-100"
+              >
+                <Star size={14} className="shrink-0 text-gold-400" />
+                <span className="whitespace-nowrap">{h}</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
