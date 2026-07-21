@@ -58,8 +58,165 @@ export const gallery = [
   { src: img.spices, alt: "Aromatic spices and mustard oil" },
 ];
 
+export const legalNav = [
+  { label: "Privacy Policy", href: "/legal/privacy-policy" },
+  { label: "Terms of Use", href: "/legal/terms-of-use" },
+  { label: "Disclaimer", href: "/legal/disclaimer" },
+  { label: "Cookie Policy", href: "/legal/cookie-policy" },
+];
+
+type LegalSection = { heading: string; body: string[] };
+type LegalDoc = {
+  slug: string;
+  title: string;
+  updated: string;
+  intro: string;
+  sections: LegalSection[];
+};
+
+export const legalDocs: LegalDoc[] = [
+  {
+    slug: "privacy-policy",
+    title: "Privacy Policy",
+    updated: "July 2024",
+    intro:
+      "Your trust matters to us. This policy explains what limited information we collect when you visit dirioils.com and how we look after it. Diri Oils is an informational brand website — we do not sell products online.",
+    sections: [
+      {
+        heading: "Information We Collect",
+        body: [
+          "We only collect the information you choose to share with us. If you fill in our contact form, we receive your name, email, phone number, enquiry type and message.",
+          "Like most websites, our hosting provider may automatically log standard technical data such as your browser type, device and approximate region for security and performance purposes.",
+        ],
+      },
+      {
+        heading: "How We Use Your Information",
+        body: [
+          "We use the details you provide solely to respond to your enquiry, answer questions about our oil, and share stockist or wholesale information where relevant.",
+          "We never sell, rent or trade your personal information to third parties.",
+        ],
+      },
+      {
+        heading: "Data Retention",
+        body: [
+          "Enquiry messages are kept only for as long as needed to assist you and maintain a record of our correspondence, after which they are removed.",
+        ],
+      },
+      {
+        heading: "Your Rights",
+        body: [
+          "You may request access to, correction of, or deletion of any personal information you have shared with us at any time by writing to hello@dirioils.com.",
+        ],
+      },
+      {
+        heading: "Contact",
+        body: [
+          "Questions about this policy? Reach us at hello@dirioils.com and we will be glad to help.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "terms-of-use",
+    title: "Terms of Use",
+    updated: "July 2024",
+    intro:
+      "By accessing and using the Diri Oils website, you agree to the following terms. Please read them carefully.",
+    sections: [
+      {
+        heading: "About This Website",
+        body: [
+          "This website exists to present the Diri Oils brand, our product and our story. It is informational only and does not offer online sales or transactions.",
+        ],
+      },
+      {
+        heading: "Use of Content",
+        body: [
+          "All content — including text, logos, imagery and videos — is the property of Diri Oils or its licensors and is protected by applicable laws. You may view and share content for personal, non-commercial purposes only.",
+          "You may not reproduce, republish or use our content for commercial purposes without prior written permission.",
+        ],
+      },
+      {
+        heading: "Accuracy of Information",
+        body: [
+          "We take care to keep information about our oil accurate and current. However, product details, specifications and availability may change without notice.",
+        ],
+      },
+      {
+        heading: "Limitation of Liability",
+        body: [
+          "Diri Oils is not liable for any loss arising from reliance on information presented on this website. Nutritional and wellness information is provided for general awareness and is not medical advice.",
+        ],
+      },
+      {
+        heading: "Governing Law",
+        body: [
+          "These terms are governed by the laws of India, and any disputes shall be subject to the jurisdiction of the courts of Haryana.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "disclaimer",
+    title: "Disclaimer",
+    updated: "July 2024",
+    intro:
+      "The information on this website is shared in good faith and for general informational purposes only.",
+    sections: [
+      {
+        heading: "Health & Nutrition",
+        body: [
+          "References to the traditional uses and nutritional qualities of mustard oil reflect common understanding and heritage, not medical claims. They are not intended to diagnose, treat, cure or prevent any disease.",
+          "Always consult a qualified healthcare professional before making dietary or wellness decisions.",
+        ],
+      },
+      {
+        heading: "Product Representation",
+        body: [
+          "We strive to represent our oil, its colour, packaging and characteristics as accurately as possible. Natural products may vary slightly from batch to batch and from the imagery shown.",
+        ],
+      },
+      {
+        heading: "External Links",
+        body: [
+          "Our website may link to external sites such as social media. We are not responsible for the content or privacy practices of those third-party sites.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "cookie-policy",
+    title: "Cookie Policy",
+    updated: "July 2024",
+    intro:
+      "This policy explains how cookies and similar technologies may be used on the Diri Oils website.",
+    sections: [
+      {
+        heading: "What Are Cookies",
+        body: [
+          "Cookies are small text files stored on your device that help websites function and understand how they are used.",
+        ],
+      },
+      {
+        heading: "How We Use Them",
+        body: [
+          "As an informational website, we use only essential cookies needed for the site to work and, where enabled, privacy-friendly analytics to understand general traffic patterns.",
+          "We do not use cookies for advertising or to track you across other websites.",
+        ],
+      },
+      {
+        heading: "Managing Cookies",
+        body: [
+          "You can control or delete cookies through your browser settings at any time. Disabling essential cookies may affect how the website functions.",
+        ],
+      },
+    ],
+  },
+];
+
 export const nav = [
   { label: "Home", href: "/" },
+
   { label: "About", href: "/about" },
   { label: "Product", href: "/product" },
   { label: "Benefits", href: "/benefits" },

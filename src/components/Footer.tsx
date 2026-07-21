@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Instagram, Facebook, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import Logo from "./Logo";
-import { nav, site } from "@/lib/site";
+import { nav, site, legalNav } from "@/lib/site";
+
 
 export default function Footer() {
   return (
@@ -20,8 +21,9 @@ export default function Footer() {
       </svg>
 
       <div className="mx-auto max-w-6xl px-5 pb-10 pt-24">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
+        <div className="grid gap-10 sm:grid-cols-2 md:gap-12 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+          <div className="sm:col-span-2 lg:col-span-1">
+
             <div className="rounded-2xl bg-cream/95 p-3 w-fit">
               <Logo />
             </div>
@@ -98,7 +100,24 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          <div>
+            <h4 className="font-serif text-lg text-cream">Legal</h4>
+            <ul className="mt-4 space-y-2.5">
+              {legalNav.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-leaf-200 transition-colors duration-200 hover:text-gold-400 cursor-pointer"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-leaf-800 pt-6 text-xs text-leaf-300 sm:flex-row">
           <p>

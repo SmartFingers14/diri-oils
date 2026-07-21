@@ -127,6 +127,37 @@ h1, h2, h3, h4, .font-serif {
   }
 }
 
+/* Native smooth scroll as a fallback; Lenis takes over on capable devices */
 html {
   scroll-behavior: smooth;
 }
+
+/* Lenis: while active, let JS drive scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Prevent horizontal overflow on small screens */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Media never overflows its container */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+

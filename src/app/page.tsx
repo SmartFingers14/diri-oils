@@ -16,7 +16,9 @@ import {
 import Reveal, { stagger, item } from "@/components/Reveal";
 import Video from "@/components/Video";
 import SmartImage from "@/components/SmartImage";
+import Parallax from "@/components/Parallax";
 import { benefits, process, product, videos, img, gallery } from "@/lib/site";
+
 
 const trust = [
   { icon: Leaf, label: "100% Natural" },
@@ -54,7 +56,8 @@ export default function Home() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="mt-6 max-w-3xl font-serif text-5xl font-semibold leading-[1.05] text-cream drop-shadow-lg sm:text-6xl md:text-7xl"
+            className="mt-6 max-w-3xl font-serif text-[2.6rem] font-semibold leading-[1.05] text-cream drop-shadow-lg sm:text-6xl md:text-7xl"
+
           >
             The honest oil,
             <br />
@@ -200,11 +203,14 @@ export default function Home() {
 
       {/* FULL-BLEED VIDEO BREAK — the pour */}
       <section className="relative h-[70vh] min-h-[420px] overflow-hidden">
-        <Video
-          src={videos.pour}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <Parallax speed={50} className="absolute inset-0 h-[120%] w-full">
+          <Video
+            src={videos.pour}
+            className="h-full w-full object-cover"
+          />
+        </Parallax>
         <div className="absolute inset-0 bg-leaf-900/55" />
+
         <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-5 text-center">
           <Reveal>
             <h2 className="font-serif text-3xl font-semibold leading-tight text-cream drop-shadow-lg sm:text-5xl">

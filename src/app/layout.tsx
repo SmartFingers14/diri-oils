@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Lora, Raleway } from "next/font/google";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgress from "@/components/ScrollProgress";
+
 
 const lora = Lora({
   variable: "--font-lora",
@@ -39,6 +43,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#223318",
+};
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,9 +61,12 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${raleway.variable} antialiased`}
       >
+        <SmoothScroll />
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />
+
       </body>
     </html>
   );
