@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  /* Fresh & Organic — greens + mustard gold */
+  --background: #fbfaf3;
+  --foreground: #1f2a12;
+
+  --cream: #fbfaf3;
+  --cream-deep: #f3f1e2;
+
+  --leaf-50: #f2f7ec;
+  --leaf-100: #e2eed4;
+  --leaf-200: #c6dcac;
+  --leaf-300: #a2c47c;
+  --leaf-400: #7fa953;
+  --leaf-500: #5f8b39;
+  --leaf-600: #4a6f2c;
+  --leaf-700: #3a5724;
+  --leaf-800: #2f461f;
+  --leaf-900: #223318;
+
+  --gold-300: #f2d675;
+  --gold-400: #ecc23f;
+  --gold-500: #dca818;
+  --gold-600: #b9860f;
+  --gold-700: #916510;
+
+  --bark: #4a3b28;
+  --muted: #5e6b4d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+
+  --color-leaf-50: var(--leaf-50);
+  --color-leaf-100: var(--leaf-100);
+  --color-leaf-200: var(--leaf-200);
+  --color-leaf-300: var(--leaf-300);
+  --color-leaf-400: var(--leaf-400);
+  --color-leaf-500: var(--leaf-500);
+  --color-leaf-600: var(--leaf-600);
+  --color-leaf-700: var(--leaf-700);
+  --color-leaf-800: var(--leaf-800);
+  --color-leaf-900: var(--leaf-900);
+
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+
+  --color-bark: var(--bark);
+  --color-muted: var(--muted);
+
+  --font-serif: var(--font-lora);
+  --font-sans: var(--font-raleway);
+}
+
+* {
+  border-color: var(--leaf-100);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-lora), ui-serif, Georgia, serif;
+}
+
+/* Subtle grain / organic texture helpers */
+.leaf-gradient {
+  background: radial-gradient(120% 120% at 20% 0%, #f2f7ec 0%, #e6f0d8 45%, #d6e6bf 100%);
+}
+
+.gold-text {
+  background: linear-gradient(90deg, var(--gold-600), var(--gold-400));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.blob {
+  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+}
+
+.blob-2 {
+  border-radius: 58% 42% 33% 67% / 63% 41% 59% 37%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--leaf-300);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--leaf-400);
+}
+
+::selection {
+  background: var(--gold-300);
+  color: var(--leaf-900);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
