@@ -32,8 +32,9 @@ export default function BenefitsPage() {
       />
 
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
           {benefits.map((b, i) => {
             const Icon = icons[i % icons.length];
             return (
@@ -56,9 +57,10 @@ export default function BenefitsPage() {
       </section>
 
       {/* NUTRITION */}
-      <section className="bg-leaf-50 py-24">
+      <section className="bg-leaf-50 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl px-5">
-          <div className="grid items-center gap-12 md:grid-cols-2">
+          <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
+
             <Reveal>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
                 Fatty Acid Profile
@@ -101,7 +103,8 @@ export default function BenefitsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-5 py-20 text-center">
+      <section className="mx-auto max-w-3xl px-5 py-16 text-center sm:py-20">
+
         <Reveal>
           <p className="font-serif text-2xl italic leading-relaxed text-leaf-800 sm:text-3xl">
             &ldquo;The kitchen is the first pharmacy — and mustard oil has always

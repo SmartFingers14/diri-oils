@@ -33,21 +33,23 @@ export default function Home() {
   return (
     <>
       {/* CINEMATIC VIDEO HERO */}
-      <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
-        <Video
-          src={videos.hero}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+      <section className="relative flex min-h-[100svh] w-full flex-col overflow-hidden">
+        <div className="absolute inset-0">
+          <Video
+            src={videos.hero}
+            className="h-full w-full object-cover"
+          />
+        </div>
         {/* readability overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-leaf-900/70 via-leaf-900/40 to-leaf-900/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-leaf-900/60 to-transparent" />
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col justify-center px-5">
+        <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 pb-16 pt-28 sm:pb-20 sm:pt-32">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-cream/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-cream backdrop-blur-md"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-cream/15 px-3.5 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cream backdrop-blur-md sm:px-4 sm:text-xs"
           >
             <Leaf size={14} /> Farm-to-Kitchen Purity
           </motion.span>
@@ -56,8 +58,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="mt-6 max-w-3xl font-serif text-[2.6rem] font-semibold leading-[1.05] text-cream drop-shadow-lg sm:text-6xl md:text-7xl"
-
+            className="mt-5 max-w-3xl font-serif text-[2.25rem] font-semibold leading-[1.08] text-cream drop-shadow-lg xs:text-[2.6rem] sm:mt-6 sm:text-6xl md:text-7xl"
           >
             The honest oil,
             <br />
@@ -68,7 +69,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.16 }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90 drop-shadow"
+            className="mt-5 max-w-xl text-base leading-relaxed text-cream/90 drop-shadow sm:mt-6 sm:text-lg"
           >
             Pure, cold-pressed mustard oil from single-origin farms. Nothing
             added, nothing refined — just the golden goodness your kitchen
@@ -79,11 +80,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.24 }}
-            className="mt-9 flex flex-wrap gap-3"
+            className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap"
           >
             <Link
               href="/product"
-              className="group inline-flex items-center gap-2 rounded-full bg-gold-400 px-7 py-3.5 text-sm font-semibold text-leaf-900 shadow-lg transition-colors duration-200 hover:bg-gold-300 cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-6 py-3.5 text-sm font-semibold text-leaf-900 shadow-lg transition-colors duration-200 hover:bg-gold-300 cursor-pointer sm:px-7"
             >
               Discover the Oil
               <ArrowRight
@@ -93,7 +94,7 @@ export default function Home() {
             </Link>
             <Link
               href="/process"
-              className="inline-flex items-center gap-2 rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream backdrop-blur-md transition-colors duration-200 hover:bg-cream/20 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-cream/40 bg-cream/10 px-6 py-3.5 text-sm font-semibold text-cream backdrop-blur-md transition-colors duration-200 hover:bg-cream/20 cursor-pointer sm:px-7"
             >
               <Play size={15} /> How It&apos;s Made
             </Link>
@@ -103,16 +104,16 @@ export default function Home() {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="mt-12 flex flex-wrap gap-x-6 gap-y-3"
+            className="mt-8 flex flex-wrap gap-x-5 gap-y-2.5 sm:mt-12 sm:gap-x-6 sm:gap-y-3"
           >
             {trust.map((t) => (
               <motion.li
                 key={t.label}
                 variants={item}
-                className="flex items-center gap-2 text-sm font-medium text-cream/90"
+                className="flex items-center gap-2 text-xs font-medium text-cream/90 sm:text-sm"
               >
                 <span className="rounded-full bg-cream/15 p-1.5 text-gold-300 backdrop-blur">
-                  <t.icon size={16} />
+                  <t.icon size={15} />
                 </span>
                 {t.label}
               </motion.li>
@@ -120,17 +121,18 @@ export default function Home() {
           </motion.ul>
         </div>
 
-        {/* scroll cue */}
+        {/* scroll cue — hidden on small screens to avoid crowding */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.8, repeat: Infinity }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-cream/70"
+          className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-cream/70 sm:block"
         >
           <div className="flex h-9 w-6 items-start justify-center rounded-full border-2 border-cream/50 p-1">
             <div className="h-2 w-1 rounded-full bg-cream/70" />
           </div>
         </motion.div>
       </section>
+
 
       {/* MARQUEE STRIP */}
       <div className="border-y border-leaf-800 bg-leaf-900 py-3">
@@ -144,8 +146,9 @@ export default function Home() {
       </div>
 
       {/* STORY / INTRO — image + text split */}
-      <section className="mx-auto max-w-6xl px-5 py-24">
-        <div className="grid items-center gap-12 md:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+        <div className="grid items-center gap-14 md:grid-cols-2 md:gap-12">
+
           <Reveal>
             <div className="relative">
               <SmartImage
@@ -225,7 +228,8 @@ export default function Home() {
       </section>
 
       {/* BENEFITS with image accent */}
-      <section className="bg-leaf-50 py-24">
+      <section className="bg-leaf-50 py-16 sm:py-24">
+
         <div className="mx-auto max-w-6xl px-5">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
@@ -241,7 +245,8 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
-            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-10 grid gap-6 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3"
+
           >
             {benefits.slice(0, 6).map((b, i) => {
               const Icon = benefitIcons[i % benefitIcons.length];
@@ -281,8 +286,9 @@ export default function Home() {
       </section>
 
       {/* PROCESS with video */}
-      <section className="mx-auto max-w-6xl px-5 py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+
           <Reveal>
             <div className="overflow-hidden rounded-[2rem] shadow-xl">
               <Video
@@ -320,7 +326,8 @@ export default function Home() {
       </section>
 
       {/* GALLERY */}
-      <section className="bg-leaf-50 py-24">
+      <section className="bg-leaf-50 py-16 sm:py-24">
+
         <div className="mx-auto max-w-6xl px-5">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
@@ -356,11 +363,14 @@ export default function Home() {
       {/* CTA with cooking video */}
       <section className="mx-auto max-w-6xl px-5 py-16">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2.5rem] px-8 py-20 text-center sm:px-16">
-            <Video
-              src={videos.cooking}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+          <div className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:rounded-[2.5rem] sm:px-16 sm:py-20">
+
+            <div className="absolute inset-0">
+              <Video
+                src={videos.cooking}
+                className="h-full w-full object-cover"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-br from-leaf-900/85 to-leaf-800/80" />
             <div className="relative">
               <h2 className="font-serif text-3xl font-semibold text-cream sm:text-4xl">

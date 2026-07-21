@@ -27,8 +27,9 @@ export default function ContactPage() {
       />
 
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-10">
+
           {/* Contact details */}
           <div className="space-y-5">
             {details.map((d, i) => (
@@ -73,7 +74,8 @@ export default function ContactPage() {
 
           {/* Form */}
           <Reveal delay={0.1}>
-            <div className="rounded-3xl border border-leaf-100 bg-cream p-8 shadow-sm">
+            <div className="rounded-3xl border border-leaf-100 bg-cream p-6 shadow-sm sm:p-8">
+
               {sent ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}

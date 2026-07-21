@@ -13,11 +13,13 @@ export default function ProductPage() {
   return (
     <>
       {/* HERO / PRODUCT SHOWCASE */}
-      <section className="relative overflow-hidden leaf-gradient pt-36 pb-20 sm:pt-40">
+      <section className="relative overflow-hidden leaf-gradient pt-28 pb-16 sm:pt-40 sm:pb-20">
+
         <div className="pointer-events-none absolute -right-16 top-24 h-72 w-72 blob bg-gold-300/30 blur-3xl" />
         <div className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 blob-2 bg-leaf-300/40 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2 md:gap-12">
+
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -108,7 +110,8 @@ export default function ProductPage() {
       </section>
 
       {/* SPECS */}
-      <section className="mx-auto max-w-6xl px-5 py-24">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
             The Details
@@ -187,7 +190,8 @@ export default function ProductPage() {
       </section>
 
       {/* COMPARISON */}
-      <section className="bg-leaf-50 py-24">
+      <section className="bg-leaf-50 py-16 sm:py-24">
+
 
         <div className="mx-auto max-w-4xl px-5">
           <Reveal className="mx-auto max-w-2xl text-center">
@@ -202,14 +206,15 @@ export default function ProductPage() {
           <Reveal delay={0.1}>
             <div className="mt-12 overflow-hidden rounded-3xl border border-leaf-100 bg-cream shadow-sm">
               <div className="grid grid-cols-3 bg-leaf-900 text-cream">
-                <div className="px-5 py-4 text-sm font-semibold">Feature</div>
-                <div className="px-5 py-4 text-center text-sm font-semibold text-gold-400">
+                <div className="px-3 py-3.5 text-xs font-semibold sm:px-5 sm:py-4 sm:text-sm">Feature</div>
+                <div className="px-3 py-3.5 text-center text-xs font-semibold text-gold-400 sm:px-5 sm:py-4 sm:text-sm">
                   Diri Oils
                 </div>
-                <div className="px-5 py-4 text-center text-sm font-semibold text-leaf-200">
+                <div className="px-3 py-3.5 text-center text-xs font-semibold text-leaf-200 sm:px-5 sm:py-4 sm:text-sm">
                   Refined Oil
                 </div>
               </div>
+
               {[
                 ["Extraction", "Cold wooden press", "High-heat + solvent"],
                 ["Nutrients", "Fully retained", "Largely stripped"],
@@ -223,15 +228,16 @@ export default function ProductPage() {
                     i % 2 === 0 ? "bg-leaf-50" : "bg-cream"
                   }`}
                 >
-                  <div className="px-5 py-4 text-sm font-medium text-leaf-800">
+                  <div className="px-3 py-3.5 text-xs font-medium text-leaf-800 sm:px-5 sm:py-4 sm:text-sm">
                     {row[0]}
                   </div>
-                  <div className="px-5 py-4 text-center text-sm font-semibold text-leaf-700">
+                  <div className="px-3 py-3.5 text-center text-xs font-semibold text-leaf-700 sm:px-5 sm:py-4 sm:text-sm">
                     {row[1]}
                   </div>
-                  <div className="px-5 py-4 text-center text-sm text-muted">
+                  <div className="px-3 py-3.5 text-center text-xs text-muted sm:px-5 sm:py-4 sm:text-sm">
                     {row[2]}
                   </div>
+
                 </div>
               ))}
             </div>

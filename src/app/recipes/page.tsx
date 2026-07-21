@@ -32,8 +32,9 @@ export default function RecipesPage() {
       />
 
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
           {recipes.map((r, i) => (
             <Reveal key={r.title} delay={(i % 3) * 0.08}>
               <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-leaf-100 bg-cream shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer">

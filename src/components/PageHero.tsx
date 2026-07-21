@@ -21,22 +21,20 @@ export default function PageHero({
 
   return (
     <section
-      className={`relative overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-28 ${
+      className={`relative overflow-hidden pt-28 pb-16 sm:pt-44 sm:pb-28 ${
         hasMedia ? "" : "leaf-gradient"
       }`}
     >
+
       {/* Background media */}
       {video ? (
-        <Video
-          src={video}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <div className="absolute inset-0">
+          <Video src={video} className="h-full w-full object-cover" />
+        </div>
       ) : image ? (
-        <SmartImage
-          src={image}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <div className="absolute inset-0">
+          <SmartImage src={image} alt="" className="h-full w-full object-cover" />
+        </div>
       ) : null}
 
       {hasMedia && (
@@ -68,7 +66,7 @@ export default function PageHero({
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className={`font-serif text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl ${
+          className={`font-serif text-[2rem] font-semibold leading-[1.12] xs:text-4xl sm:text-5xl md:text-6xl ${
             hasMedia ? "text-cream drop-shadow-lg" : "text-leaf-900"
           }`}
         >
@@ -78,10 +76,11 @@ export default function PageHero({
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.12 }}
-          className={`mx-auto mt-6 max-w-2xl text-lg leading-relaxed ${
+          className={`mx-auto mt-4 max-w-2xl text-base leading-relaxed sm:mt-6 sm:text-lg ${
             hasMedia ? "text-cream/90 drop-shadow" : "text-muted"
           }`}
         >
+
           {subtitle}
         </motion.p>
       </div>

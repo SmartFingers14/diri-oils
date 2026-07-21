@@ -45,8 +45,9 @@ export default function AboutPage() {
         video={videos.farm}
       />
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="grid items-center gap-12 md:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
+
           <Reveal>
             <p className="text-lg leading-relaxed text-muted">
               It started in a small village in Haryana, where mustard fields
@@ -92,7 +93,8 @@ export default function AboutPage() {
       </section>
 
 
-      <section className="bg-leaf-50 py-20">
+      <section className="bg-leaf-50 py-16 sm:py-20">
+
         <div className="mx-auto max-w-6xl px-5">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
@@ -125,8 +127,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="grid gap-6 rounded-[2.5rem] bg-leaf-900 p-10 text-center text-cream sm:grid-cols-3 sm:p-14">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+        <div className="grid gap-8 rounded-[2rem] bg-leaf-900 p-8 text-center text-cream sm:grid-cols-3 sm:rounded-[2.5rem] sm:p-14">
+
           <Reveal>
             <p className="font-serif text-4xl font-bold text-gold-400">100%</p>
             <p className="mt-1 text-sm text-leaf-200">Pure & Unrefined</p>

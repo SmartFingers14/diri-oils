@@ -21,7 +21,8 @@ export default function ProcessPage() {
       />
 
 
-      <section className="mx-auto max-w-4xl px-5 py-24">
+      <section className="mx-auto max-w-4xl px-5 py-16 sm:py-24">
+
         <div className="relative">
           {/* vertical line */}
           <div className="absolute left-[27px] top-2 bottom-2 w-0.5 bg-leaf-200 md:left-1/2 md:-translate-x-1/2" />
@@ -56,7 +57,8 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="bg-leaf-900 py-20 text-center text-cream">
+      <section className="bg-leaf-900 py-16 text-center text-cream sm:py-20">
+
         <div className="mx-auto max-w-2xl px-5">
           <Reveal>
             <h2 className="font-serif text-3xl font-semibold sm:text-4xl">

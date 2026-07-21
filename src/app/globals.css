@@ -58,7 +58,11 @@
 
   --font-serif: var(--font-lora);
   --font-sans: var(--font-raleway);
+
+  /* Extra-small breakpoint for fine mobile control */
+  --breakpoint-xs: 25rem;
 }
+
 
 * {
   border-color: var(--leaf-100);
